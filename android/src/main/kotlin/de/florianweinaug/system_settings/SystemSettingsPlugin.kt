@@ -10,7 +10,6 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
 import java.lang.Exception
 
 public class SystemSettingsPlugin: MethodCallHandler,FlutterPlugin {
@@ -24,11 +23,6 @@ public class SystemSettingsPlugin: MethodCallHandler,FlutterPlugin {
   companion object {
     lateinit var mPluginBinding: FlutterPlugin.FlutterPluginBinding
     lateinit var channel: MethodChannel
-    @JvmStatic
-    fun registerWith(registrar: Registrar) {
-      val channel = MethodChannel(registrar.messenger(), "system_settings")
-      channel.setMethodCallHandler(SystemSettingsPlugin())
-    }
   }
 
   override fun onMethodCall(@NonNull call: MethodCall, @NonNull result: Result) {
